@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml"
+    xmlns:o="urn:schemas-microsoft-com:office:office">
+
+<head>
+    <meta charset="utf-8"> <!-- utf-8 works for most cases -->
+    <meta name="viewport" content="width=device-width"> <!-- Forcing initial-scale shouldn't be necessary -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- Use the latest (edge) version of IE rendering engine -->
+    <meta name="x-apple-disable-message-reformatting"> <!-- Disable auto-scale in iOS 10 Mail entirely -->
+    <title></title> <!-- The title tag shows in email notifications, like Android 4.4. -->
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+
+    <!-- CSS Reset : BEGIN -->
+    <style>
+        html,
+        body {
+            margin: 0 auto !important;
+            padding: 0 !important;
+            height: 100% !important;
+            width: 100% !important;
+            background: #f1f1f1;
+        }
+
+        /* What it does: Stops email clients resizing small text. */
+        * {
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        /* What it does: Centers email on Android 4.4 */
+        div[style*="margin: 16px 0"] {
+            margin: 0 !important;
+        }
+
+        /* What it does: Stops Outlook from adding extra spacing to tables. */
+        table,
+
+        /* What it does: Fixes webkit padding issue. */
+        table {
+            border-spacing: 0 !important;
+            border-collapse: collapse !important;
+            table-layout: fixed !important;
+            margin: 0 auto !important;
+        }
+
+        /* What it does: Uses a better rendering method when resizing images in IE. */
+        img {
+            -ms-interpolation-mode: bicubic;
+        }
+
+        /* What it does: Prevents Windows 10 Mail from underlining links despite inline CSS. Styles for underlined links should be inline. */
+        a {
+            text-decoration: none;
+        }
+
+        /* What it does: A work-around for email clients meddling in triggered links. */
+        *[x-apple-data-detectors],
+        /* iOS */
+        .unstyle-auto-detected-links *,
+        .aBn {
+            border-bottom: 0 !important;
+            cursor: default !important;
+            color: inherit !important;
+            text-decoration: none !important;
+            font-size: inherit !important;
+            font-family: inherit !important;
+            font-weight: inherit !important;
+            line-height: inherit !important;
+        }
+
+        /* What it does: Prevents Gmail from displaying a download button on large, non-linked images. */
+        .a6S {
+            display: none !important;
+            opacity: 0.01 !important;
+        }
+
+        /* What it does: Prevents Gmail from changing the text color in conversation threads. */
+        .im {
+            color: inherit !important;
+        }
+
+        /* If the above doesn't work, add a .g-img class to any image in question. */
+        img.g-img+div {
+            display: none !important;
+        }
+
+        /* What it does: Removes right gutter in Gmail iOS app: https://github.com/TedGoas/Cerberus/issues/89  */
+        /* Create one of these media queries for each additional viewport size you'd like to fix */
+
+        /* iPhone 4, 4S, 5, 5S, 5C, and 5SE */
+        @media only screen and (min-device-width: 320px) and (max-device-width: 374px) {
+            u~div .email-container {
+                min-width: 320px !important;
+            }
+        }
+
+        /* iPhone 6, 6S, 7, 8, and X */
+        @media only screen and (min-device-width: 375px) and (max-device-width: 413px) {
+            u~div .email-container {
+                min-width: 375px !important;
+            }
+        }
+
+        /* iPhone 6+, 7+, and 8+ */
+        @media only screen and (min-device-width: 414px) {
+            u~div .email-container {
+                min-width: 414px !important;
+            }
+        }
+    </style>
+
+    <!-- CSS Reset : END -->
+
+    <!-- Progressive Enhancements : BEGIN -->
+    <style>
+        .primary {
+            background: #0d0cb5;
+        }
+
+        .bg_white {
+            background: #ffffff;
+        }
+
+        .bg_light {
+            background: #fafafa;
+        }
+
+        .bg_black {
+            background: #000000;
+        }
+
+        .bg_dark {
+            background: rgba(0, 0, 0, .8);
+        }
+
+        .email-section {
+            padding: 2.5em;
+        }
+
+        /*BUTTON*/
+        .btn {
+            padding: 5px 15px;
+            display: inline-block;
+        }
+
+        .btn.btn-primary {
+            border-radius: 5px;
+            background: #0d0cb5;
+            color: #ffffff;
+        }
+
+        .btn.btn-white {
+            border-radius: 5px;
+            background: #ffffff;
+            color: #000000;
+        }
+
+        .btn.btn-white-outline {
+            border-radius: 5px;
+            background: transparent;
+            border: 1px solid #fff;
+            color: #fff;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Poppins', sans-serif;
+            color: #000000;
+            margin-top: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+            font-size: 15px;
+            line-height: 1.8;
+            color: rgba(0, 0, 0, .4);
+        }
+
+        a {
+            color: #0d0cb5;
+        }
+
+
+        /*LOGO*/
+
+        .logo h1 {
+            margin: 0;
+        }
+
+        .logo h1 a {
+            color: #000000;
+            font-size: 20px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .navigation {
+            padding: 0;
+        }
+
+        .navigation li {
+            list-style: none;
+            display: inline-block;
+            ;
+            margin-left: 5px;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .navigation li a {
+            color: rgba(0, 0, 0, .4);
+        }
+
+        /*HERO*/
+        .hero {
+            position: relative;
+            z-index: 0;
+        }
+
+        .hero .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            content: '';
+            width: 100%;
+            background: #000000;
+            z-index: -1;
+            opacity: .3;
+        }
+
+
+        .hero .icon a {
+            display: block;
+            width: 60px;
+            margin: 0 auto;
+        }
+
+        .hero .text {
+            color: rgba(255, 255, 255, .8);
+        }
+
+        .hero .text h2 {
+            color: #ffffff;
+            font-size: 30px;
+            margin-bottom: 0;
+        }
+
+        .heading-section h2 {
+            color: #000000;
+            font-size: 20px;
+            margin-top: 0;
+            line-height: 1.4;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .heading-section .subheading {
+            margin-bottom: 20px !important;
+            display: inline-block;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: rgba(0, 0, 0, .4);
+            position: relative;
+        }
+
+        .heading-section .subheading::after {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -10px;
+            content: '';
+            width: 100%;
+            height: 2px;
+            background: #0d0cb5;
+            margin: 0 auto;
+        }
+
+        .heading-section-white {
+            color: rgba(255, 255, 255, .8);
+        }
+
+        .heading-section-white h2 {
+            color: #ffffff;
+        }
+
+        .heading-section-white .subheading {
+            margin-bottom: 0;
+            display: inline-block;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: rgba(255, 255, 255, .4);
+        }
+
+
+        .icon {
+            text-align: center;
+        }
+
+        /*SERVICES*/
+        .services {
+            background: rgba(0, 0, 0, .03);
+        }
+
+        .text-services {
+            padding: 10px 10px 0;
+            text-align: center;
+        }
+
+        .text-services h3 {
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .services-list {
+            padding: 0;
+            margin: 0 0 20px 0;
+            width: 100%;
+            float: left;
+        }
+
+        .services-list img {
+            float: left;
+        }
+
+        .services-list .text {
+            width: calc(100% - 60px);
+            float: right;
+        }
+
+        .services-list h3 {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        .services-list p {
+            margin: 0;
+        }
+
+        /*BLOG*/
+        .text-services .meta {
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+
+        /*TESTIMONY*/
+        .text-testimony .name {
+            margin: 0;
+        }
+
+        .text-testimony .position {
+            color: rgba(0, 0, 0, .3);
+
+        }
+
+
+        /*VIDEO*/
+        .img {
+            width: 100%;
+            height: auto;
+            position: relative;
+        }
+
+        .img .icon {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin-top: -25px;
+        }
+
+        .img .icon a {
+            display: block;
+            width: 60px;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            margin-left: -25px;
+        }
+
+
+
+        /*COUNTER*/
+        .counter {
+            width: 100%;
+            position: relative;
+            z-index: 0;
+        }
+
+        .counter .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            content: '';
+            width: 100%;
+            background: #000000;
+            z-index: -1;
+            opacity: .3;
+        }
+
+        .counter-text {
+            text-align: center;
+        }
+
+        .counter-text .num {
+            display: block;
+            color: #ffffff;
+            font-size: 34px;
+            font-weight: 700;
+        }
+
+        .counter-text .name {
+            display: block;
+            color: rgba(255, 255, 255, .9);
+            font-size: 13px;
+        }
+
+
+        /*FOOTER*/
+
+        .footer {
+            color: rgba(255, 255, 255, .5);
+
+        }
+
+        .footer .heading {
+            color: #ffffff;
+            font-size: 20px;
+        }
+
+        .footer ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        .footer ul li {
+            list-style: none;
+            margin-bottom: 10px;
+        }
+
+        .footer ul li a {
+            color: rgba(255, 255, 255, 1);
+        }
+
+
+        @media screen and (max-width: 500px) {
+
+            .icon {
+                text-align: left;
+            }
+
+            .text-services {
+                padding-left: 0;
+                padding-right: 20px;
+                text-align: left;
+            }
+
+        }
+    </style>
+
+
+</head>
+
+<body style="margin: 0; padding: 0 !important;">
+    <!-- <center style="width: 100%; background-color: #f1f1f1;"> -->
+    <div
+        style="display: none; font-size: 1px;max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden;  font-family: sans-serif;">
+    </div>
+    <div style="max-width: 600px; margin: 0 auto;" class="email-container">
+        <!-- BEGIN BODY -->
+        <table align="center" role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%"
+            style="margin: auto;">
+            <tr>
+                <td valign="top" class="bg_white" style="padding: 1em 2.5em;">
+                    <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
+                        <tr>
+                            <td width="40%" class="logo" style="text-align: left;">
+                                <h1><a href="#">
+                                        Diseñadora UX/UI
+                                    </a></h1>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr><!-- end tr -->
+            <tr>
+                <td valign="middle" class="hero bg_white"
+                    style="background-image: url(https://lh3.googleusercontent.com/pw/AIL4fc_j3jX5BDNnmk7kA97w_V7Xv04rfdh9dGO5kmcuVFICLYi2NnVO-bGIIvK0Pe04U7Fo83rNVjDTddB8oDB9jo7etfcPgI1VkCWWXh4cCbbK5rhHdLIjGDxMuvfCSAF70hppC7UkOk2RRhO7ODcgVLDjCYHvePMuF5c89aOqfeLdKQr2g0of2d9DGj7Hpan0iNOuDWwW9BKCY8sKKvfPXlvoMODLboIOK4uFBkpRtwgtG5p5YWgIcEtJjVkRI_G34n3B0lViAtGo_RP1oqCORghUnpMpnbMC5_wx-EgDpw7vvIcfEYEzTW5CcYs-1hkJpfE5YABkrir33XMkG5JlS1f4OUXlxu52vVkN1em78Gr3KyFOamYGxCI-h54AhP7I7yxmhp75LXgNaWQjzmHCeIK1nSTPT8v6VPz-T72THJZjUIyDgoY65_QIGM8wmNGMf390syPnDaQHDg8_VR47RY5vagAhVk2-BX8pVM6KONMq63LJuNdl9hSh0ejAuxK3H3uNPdU4A743Qbcqq3owKmmgIA7Or_ooWamwmSd_wTkYrCMpxyqyfiu_7y6JUX92LmwM7-90nYByBcHo5Zt7ETFYG9rnka-Yvt7Hblp8rSjfuTsnAkfw5TwRMm-NMdJd3dOlcchZx9B3AqHX0RvqyRrttlMLU4clFQgr_eE6cmK35WQGvQ0J3d1xdj3yB1XzOhd5KwFMslCoG6blWEDd5iW2kWhRtxdBzJrSZFDViMkw-NicBVRVPjmsuzVXanQvS7CBSy4z-35wLye7Nbp-DsSKgyW-NptYnTJiOlWtqTRUN-5VmBcuA7rT8WQSvV9n7W08BwSSUtn7XYvBEuC_U5B9C-WKXdDG85s7naj27vSNSK86_ndTg8vZyDXVW3rl0GeFP4-r6G-mSBifel4L63s7F_B-dBNW-DcZWHPCEA69IM9yEuv2ar2ssWZIeczkaEP-Te3yvVTSRoI7eWvc8z00v0YCPdQ2cw=w1296-h774-s-no?authuser=0); background-size: cover; background-position: center; background-repeat: no-repeat; height: 300px;">
+                    <div class="overlay"></div>
+                    <table>
+                        <tr>
+                            <td>
+                                <div class="text" style="padding: 0 3em; text-align: center;">
+                                    <h2 style="color: white;">Regina Padron</h2>
+                                    <p> Lista para nuevos proyectos e iniciativas.</p>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr><!-- end tr -->
+            <tr>
+                <td class="bg_white">
+                    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                        <tr>
+                            <td class="bg_white email-section">
+                                <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                </table>
+
+                                <div class="heading-section" style="text-align: center; padding: 0 30px;">
+                                    <h2>Hola!</h2>
+                                    <p> Mi nombre es Regina,
+                                        quería presentarme porque estoy en la busqueda de una posicion con relacion a mis estudios de diseño UX/UI, utlizo Illustrator, Photoshop y figma.
+                                        
+                                    </p>
+                                    <!--Cuento con mucha experiencia no remunerada, estoy disponible para incorporarme al puesto de trabajo inmediatamente, espero su pronta respuesta, Saludos!-->
+                                </div>
+                            </td>
+                        </tr><!-- end: tr -->
+                        <tr>
+                            <td class="bg_light email-section" style="width: 100%;">
+                                <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                    <tr>
+                                        <td valign="middle" width="50%">
+                                            <table role="presentation" cellspacing="0" cellpadding="0" border="0"
+                                                width="100%">
+                                                <tr>
+                                                    <td>
+                                                        <img src="https://media.licdn.com/dms/image/C5603AQH7m0vjowyEQA/profile-displayphoto-shrink_800_800/0/1645659696196?e=1695859200&v=beta&t=SdSmbUhCdUPQY5QGRZthE-vJFqm6avmp3OWnFQvxuuQ"
+                                                            alt=""
+                                                            style="width: 100%; max-width: 600px; height: auto; margin: auto; display: block;">
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td valign="middle" width="50%">
+                                            <table role="presentation" cellspacing="0" cellpadding="0" border="0"
+                                                width="100%">
+                                                <tr>
+                                                    <td class="text-services"
+                                                        style="text-align: left; padding-left:25px;">
+                                                        <div class="heading-section">
+                                                            <h2>Sobre mi</h2>
+                                                            <p>
+                                                                Tengo 21 años, vivo en la patagonia Argentina,
+                                                                trabaje 1 año como Barista y cuento con experiencia de Hostess y supervisora.
+                                                                Me encuentro en el segundo año de "Licenciatura en Diseño y animacion digital" y tambien realice 2 cursos en coder house.
+                                                            </p>
+                                                            <p><a href="https://www.linkedin.com/in/regina-padr%C3%B3n-375a9b232"
+                                                                    class="btn btn-primary">Leer mas</a></p>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr><!-- end: tr -->
+                        <tr>
+                            <td class="bg_white email-section">
+
+                                <div class="heading-section" style="text-align: center; padding: 0 30px;">
+                                    <h2>Programas principales</h2>
+                                    <p>Utilizo Illustrator para crear logotipos e illustraciones, Photoshop para editar imagenes y realizar mockups y Figma para diseñar pantallas.</p>
+                                </div>
+                            </td>
+                        </tr><!-- end: tr -->
+
+                        <tr>
+                            <td valign="middle" class="counter"
+                                style="background-image: url(https://lh3.googleusercontent.com/pw/AIL4fc_j3jX5BDNnmk7kA97w_V7Xv04rfdh9dGO5kmcuVFICLYi2NnVO-bGIIvK0Pe04U7Fo83rNVjDTddB8oDB9jo7etfcPgI1VkCWWXh4cCbbK5rhHdLIjGDxMuvfCSAF70hppC7UkOk2RRhO7ODcgVLDjCYHvePMuF5c89aOqfeLdKQr2g0of2d9DGj7Hpan0iNOuDWwW9BKCY8sKKvfPXlvoMODLboIOK4uFBkpRtwgtG5p5YWgIcEtJjVkRI_G34n3B0lViAtGo_RP1oqCORghUnpMpnbMC5_wx-EgDpw7vvIcfEYEzTW5CcYs-1hkJpfE5YABkrir33XMkG5JlS1f4OUXlxu52vVkN1em78Gr3KyFOamYGxCI-h54AhP7I7yxmhp75LXgNaWQjzmHCeIK1nSTPT8v6VPz-T72THJZjUIyDgoY65_QIGM8wmNGMf390syPnDaQHDg8_VR47RY5vagAhVk2-BX8pVM6KONMq63LJuNdl9hSh0ejAuxK3H3uNPdU4A743Qbcqq3owKmmgIA7Or_ooWamwmSd_wTkYrCMpxyqyfiu_7y6JUX92LmwM7-90nYByBcHo5Zt7ETFYG9rnka-Yvt7Hblp8rSjfuTsnAkfw5TwRMm-NMdJd3dOlcchZx9B3AqHX0RvqyRrttlMLU4clFQgr_eE6cmK35WQGvQ0J3d1xdj3yB1XzOhd5KwFMslCoG6blWEDd5iW2kWhRtxdBzJrSZFDViMkw-NicBVRVPjmsuzVXanQvS7CBSy4z-35wLye7Nbp-DsSKgyW-NptYnTJiOlWtqTRUN-5VmBcuA7rT8WQSvV9n7W08BwSSUtn7XYvBEuC_U5B9C-WKXdDG85s7naj27vSNSK86_ndTg8vZyDXVW3rl0GeFP4-r6G-mSBifel4L63s7F_B-dBNW-DcZWHPCEA69IM9yEuv2ar2ssWZIeczkaEP-Te3yvVTSRoI7eWvc8z00v0YCPdQ2cw=w1296-h774-s-no?authuser=0); background-size: cover; padding: 4em 0;">
+                                <div class="overlay"></div>
+                                <table>
+                                    <tr>
+                                        <td valign="middle" width="33.333%">
+                                            <table role="presentation" cellspacing="0" cellpadding="0" border="0"
+                                                width="100%">
+                                                <tr>
+                                                    <td class="counter-text">
+                                                        <img src="https://4.bp.blogspot.com/-LiJZ5I8E7K8/XIe_GeI5glI/AAAAAAAAIuw/4Awu8j8r0P8TKBXzyxyslHEfplOlK9-6QCK4BGAYYCw/s1600/icon%2Bfigma%2Bvector.png"
+                                                            alt=""
+                                                            style="width: 100%; max-width: 50px; height: auto; margin: auto; display: block;">
+                                                        <span class="name">Figma</span>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td valign="middle" width="33.333%">
+                                            <table role="presentation" cellspacing="0" cellpadding="0" border="0"
+                                                width="100%">
+                                                <tr>
+                                                    <td class="counter-text">
+                                                        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Adobe_Illustrator_CC_icon.svg"
+                                                            alt=""
+                                                            style="width: 100%; max-width: 50px; height: auto; margin: auto; display: block;">
+                                                        <span class="name">Illustrator</span>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td valign="middle" width="33.333%">
+                                            <table role="presentation" cellspacing="0" cellpadding="0" border="0"
+                                                width="100%">
+                                                <tr>
+                                                    <td class="counter-text">
+                                                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/af/Adobe_Photoshop_CC_icon.svg"
+                                                            alt=""
+                                                            style="width: 100%; max-width: 50px; height: auto; margin: auto; display: block;">
+                                                        <span class="name">Photoshop</span>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr><!-- end tr -->
+                        <tr>
+                            <td class="bg_white email-section">
+                                <div class="heading-section" style="text-align: center; padding: 0 30px;">
+                                    <h2>Mis redes</h2>
+                                    <p>Te presento mis 2 redes mas importantes (para contactarme es preferible los
+                                        medios de contacto brindados al final).</p>
+                                </div>
+                                <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                    <tr>
+                                        <td valign="top" width="50%" style="padding-top: 20px;">
+                                            <table role="presentation" cellspacing="0" cellpadding="10" border="0"
+                                                width="100%">
+                                                <tr>
+                                                    <td>
+                                                        <img src="https://raw.githubusercontent.com/elhombrej/publicDocuments/master/linkedinLogo.png"
+                                                            alt=""
+                                                            style="width: 100%; max-width: 600px; height: auto; margin: auto; display: block;">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-services" style="text-align: left;">
+                                                        <h3>LinkedIn</h3>
+                                                        <p>Página de presentación profesional.</p>
+                                                        <p><a href="https://www.linkedin.com/in/regina-padr%C3%B3n-375a9b232"
+                                                                class="btn btn-primary">Ver mas</a></p>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td valign="top" width="50%" style="padding-top: 20px;">
+                                            <table role="presentation" cellspacing="0" cellpadding="10" border="0"
+                                                width="100%">
+                                                <tr>
+                                                    <td>
+                                                        <img src="https://cdn.worldvectorlogo.com/logos/behance-1.svg"
+                                                            alt=""
+                                                            style="width: 100%; max-width: 600px; height: auto; margin: auto; display: block;">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-services" style="text-align: left;">
+                                                        <h3>Behance</h3>
+                                                        <p>Página de repositorio con proyectos.</p>
+                                                        <p><a href="https://www.behance.net/reginapadron"
+                                                                class="btn btn-primary">Ver mas</a></p>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr><!-- end: tr -->
+                        <tr>
+                            <td class="bg_light email-section">
+                                <div class="heading-section" style="text-align: center; padding: 0 30px;">
+                                    <h2>Curriculum Vitae</h2>
+                                    <p>Disponible para descargar.</p>
+                                </div>
+                                <table role="presentation" border="0" cellpadding="10" cellspacing="0" width="100%">
+                                    <img src="https://lh3.googleusercontent.com/pw/AIL4fc_HspGNy6nz06dNt7r6UNPEG0N6MF5LKUt5xWMNpYlqGjIo9hmBr7AwSn9kADj_RTDJ4uaVM5jwC7Li6DUx2pyTl4PrmPVD_F_ux_18yvffr2vUZD1_-ZYslooQsYCgIRGgecm8Cs_8OnC_Fr-TR3AYx786AK7gY4p7HQYzvVkfaj6QfZIFzrDznnS5kGYvCofmfWUlRwohFSGpAfuXOOnoosu2UPBCMlauWJF2NFfyZQGWOy6hLCT-TEnwl_aRTg9eWasIMWUnFEsecDMeKGxQz5QVtoQvKvvGmgmm_X5GDQZq-gsP65TpT29IoS5kNWtp8ujl4KvkfunS70hZ3GL9MDfpV4cTgq2jW5cqK4gyOKmJd6n6IPfFxrRgbl8tc_j_TpYjRcY-Vom1rFcsNU8w8paZKYQylwV3ks2Mplibpb4jMUEoLxOZXSFFt3UpQNtlw4yMgh6YSNdbpBgPg9xyRcdKL6MF9clxRoPbmgeugbTm6fR01BEw3d2qGTpGRsQ7-af6Vd-VfJHeMo0fCE6f_Ct7bd1yuXCPxCzpEQ_R5auhxjnDr78KorEHB_i-U4f7j25pT1xyruE4E1PLdN_AmvoQVukDxdlqARQN6oqUCySVcnQpTwYUI7PaXWFR4DSeDGD0hMpsL6RxauxCVDg34Z7EixumQvoWvA4IUDEIJZ1gxDoQ7vX0c72SfX8uZUlk28ceD4ZCqhseWoP9WTIzsGZCe9mazZzCI-orIRO4ISPXc83Mfwp05Rli0muombtESdESHiOp31cK_gPMjYQU2D6cmfLwJuvXfK8Y-28yAfH3GC1Nu9yBvn_nzr7OoeZkCSPEGsc4pt58hszXu9-5Eh9Smrh3LQuaGpzh_QDnsFR0hrKDTrxbygaWExZya11Mz4Bln8le7AE3VF9MxJ_BbtMzYIJ08sW9cQuso-TVlDQ4hmCwuAkhPz8GxzdUqxPQfShZcG-7Gnaas5Wwum5zdwGWGMkQVQ=w1014-h1442-s-no?authuser=0" alt="" width="100%" height="auto">
+
+                                </table>
+                                <p><a href="https://github.com/elhombrej/publicDocuments/raw/master/CV-Joaquin-desarrolaldor.pdf"
+                                        class="btn btn-primary">Descargar</a></p>
+
+
+                            </td>
+                        </tr><!-- end: tr -->
+                        <tr>
+                            <td class="bg_white email-section" style="width: 100%;">
+                                <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                    <tr>
+                                        <td valign="middle" width="50%">
+                                            <table role="presentation" cellspacing="0" cellpadding="0" border="0"
+                                                width="100%">
+                                                <tr>
+                                                    <td>
+                                                        <img src="https://lh3.googleusercontent.com/pw/AIL4fc9IxT2FCN3dKbetE11y4kN44HU9NpVIpppd1_taStvXzCPuqK9S9veoc7P7EjMPjAS7dIGT12SFAMxflbwXmzDynNbyOnSyZevBzdqkxrP4sHaLxU8LSrrN5z0V-Xd7wmfM2liGUkFtg-ERjrwa2zCM4Ilk2WMF2ya_jetcAOnWKQAdNcZvK6ETnhMOfX1ltV184x5vRVSWdT7Yi-_fqUJnWTvsMbaMsXRx0e8qquflbMNuDYDtYGT_Bj_nhDNooilhKwe3hb3y_a-ud6i0mlaV22mQVoo583yj5pBPcB2vVk0vTCK7Jbz6oIlropVhpBvh9MPlVj1sB8gFnHxbsa0uIVY-X8IXVMj_9H-QGI7ueTKzlm8LXHHcg-lVdYYVXocHbT57myjbyjD7Kos5Etum0oQttrniK4ICr35kUERPfApG54OtK-Uqn8_e8QWdjthkx02PbE4-lUHunKV3kXfpyiZF2VMueD9U7EXIp4wlh5ExwZnNLLbuRbk-yMmdBQ6FmvKAU6q6iSEpFL7EaTXKlhdvkCIyi7l-mZNvYh2SzVo3XchtxdMusUYp7XjDO-XSflmFxzvbqkJDE-9eEQKBczsCQ0wvpL4M4GSimZsUeQhWZicY-Cm2apn2-lgMdOzi3KonbMjpdToNdhliASrPLitU-PLH7tPwAaSdMkQQ4iEJftmMfr0IYqNXlh3OVaIOvuOpAQJYnXq9QUdu3wHQ1QPXqeUyoiqjUZMoKcEK1jLlN0J4LTaPYBLocRdWZ2pxHi3Up2BUxP2kVaZbHH7kXXWnXXD7HKRUHPuaM80wDwoRa8NwqzCjkaCdAmkl02NzdzeoLviwxsKrp2p09owzdGQW53rMHUygOGuGL08uP-yCxOyYuL2l9f7bWW91CkczxD0Kp4x7GuGM6DAN4jDWB_70KLwOMmC0PHpcApCxdw6T1jGJarrerta8-lYSh7EsnEbo0U2oO-QXWjy4TtpdJdnDJqHPYA=w1640-h1640-s-no?authuser=0"
+                                                            alt="" style="width: 100%; max-width: 600px; height: auto; margin: auto; display: flex;
+                                                                background-repeat: no-repeat;
+                                                                background-size: cover;
+                                                                background-position: center;">
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td valign="middle" width="50%">
+                                            <table role="presentation" cellspacing="0" cellpadding="0" border="0"
+                                                width="100%">
+                                                <tr>
+                                                    <td class="text-services"
+                                                        style="text-align: left; padding-left:25px;">
+                                                        <div class="heading-section">
+                                                            <h2>Estudios</h2>
+                                                        </div>
+                                                        <div class="services-list">
+                                                            <img src="https://raw.githubusercontent.com/elhombrej/publicDocuments/master/checked.png"
+                                                                alt=""
+                                                                style="width: 50px; max-width: 600px; height: auto; display: block;">
+                                                            <div class="text">
+                                                                <h3>Coderhouse</h3>
+                                                                <p>-Diseño UX/UI</p>
+                                                                <p>-Illustrator y Photoshop.</p>
+
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="services-list">
+                                                            <img src="https://raw.githubusercontent.com/elhombrej/publicDocuments/master/checked.png"
+                                                                alt=""
+                                                                style="width: 50px; max-width: 600px; height: auto; display: block;">
+                                                            <div class="text">
+                                                                <h3>Universidad Siglo 21</h3>
+                                                                <p>Segundo año en Licenciatura Diseño y animacion digital.</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="services-list">
+                                                            <img src="https://raw.githubusercontent.com/elhombrej/publicDocuments/master/checked.png"
+                                                                alt=""
+                                                                style="width: 50px; max-width: 600px; height: auto; display: block;">
+                                                            <div class="text">
+                                                                <h3>Ingles C1 Avanzado</h3>
+                                                                <p>Lectura, escritura, auditivo y verbal.</p>
+                                                            </div>
+                                                        </div>
+
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr><!-- end: tr -->
+                        <tr>
+                            <td class="primary email-section" style="text-align:center; background-color: rgb(205, 167, 121);">
+                                <div class="heading-section heading-section-white">
+                                    <h2>Lista para nuevos proyectos e iniciativas</h2>
+                                    <p>"Deseo poder encontrar mi primer trabajo en el mundo del Diseño digital, para poner en
+                                        practica los conocimientos adquiridos y a su vez seguir desarrollándome en
+                                        esta apasionante carrera"</p>
+                                    <p><a href="mailto:reginapadron@outlook.com?subject=Me&body=Hola Regina! recibi tu correo"
+                                            class="btn btn-white-outline">Contactar</a></p>
+                                </div>
+                            </td>
+                        </tr><!-- end: tr -->
+                    </table>
+
+                </td>
+            </tr><!-- end:tr -->
+            <!-- 1 Column Text + Button : END -->
+        </table>
+        <table align="center" role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%"
+            style="margin: auto;">
+            <tr>
+                <td valign="middle" class="bg_black footer email-section">
+                    <table>
+                        <tr>
+
+                            <td valign="top" width="33.333%" style="padding-top: 20px;">
+                                <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                    <tr>
+                                        <td style="text-align: left; padding-left: 5px; padding-right: 5px;">
+                                            <h3 class="heading">Ubicacion</h3>
+                                            <ul>
+                                                <li><span class="text">San Carlos de Bariloche, Rio
+                                                        Negro, Argentina</span></li>
+
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td valign="top" width="33.333%" style="padding-top: 20px;">
+                                <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                    <tr>
+                                        <td style="text-align: left; padding-left: 10px;">
+                                            <h3 class="heading">Contacto</h3>
+                                            <ul>
+                                                <li><a
+                                                        href="mailto:reginapadron@outlook.com?subject=Me&body=Hola Regina!">Reginapadron@outlook.com</a>
+                                                </li>
+                                                <li><a
+                                                        href="https://www.linkedin.com/in/regina-padr%C3%B3n-375a9b232">LinkedIn</a>
+                                                </li>
+                                                <!-- <li><a href="https://github.com/elhombrej">GitHub</a></li> -->
+                                                <li><a
+                                                        href="https://api.whatsapp.com/send/?phone=5491126496625&text=Hola+Regina!&type=phone_number&app_absent=0">(+54)
+                                                        9 11 2649 6625</a></li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr><!-- end: tr -->
+            <tr>
+                <td valign="middle" class="bg_black footer email-section">
+                    <table>
+                        <tr>
+                            <td valign="top" width="33.333%">
+                                <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                    <tr>
+    <!-- </center> -->
+</body>
+
+</html>
